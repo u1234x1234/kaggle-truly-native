@@ -37,7 +37,8 @@ y1['sponsored'] = (y15['sponsored'] + y14['sponsored'] + y13['sponsored'] + y1['
 #y1.to_csv('sub_3.csv', index=False)
 y1['sponsored'] = inv_logit(logit(a1['sponsored'].values) * 0.4 + logit(y1['sponsored'].values )* 0.3 + 
 logit(y13['sponsored'].values )* 0.4)
-#y1['sponsored'] = (y1['sponsored'] + a1) / 2
+
+y1['sponsored'] = (y1['sponsored']*0.8 + 0.2*a2['sponsored'])
 y1.to_csv('blend.csv', index=False)
 #print y1['sponsored']
 
