@@ -28,16 +28,18 @@ y13 = pd.read_csv('joint_v111_r001.csv')#v111
 y14 = pd.read_csv('joint_v115_r002.csv')#v115
 y15 = pd.read_csv('joint_v116.csv')#v116
 y16 = pd.read_csv('joint_v117_r3.csv')#v117
+y17 = pd.read_csv('v106_v2_3.csv')#v106
+y18 = pd.read_csv('joint_v119_r2.csv')#v106
 
 a1 = pd.read_csv('mixPunkt_1234.csv')#saurabh
 a2 = pd.read_csv('mixBlend_34Bank.csv')#saurabh
 
-y1['sponsored'] = (y11['sponsored'] + y10['sponsored'] + y9['sponsored'] + y4['sponsored'] + y1['sponsored'] + y5['sponsored'] + y8['sponsored'] + y7['sponsored']) / 8
-y1['sponsored'] = (y15['sponsored'] + y14['sponsored'] + y13['sponsored'] + y1['sponsored'] + y12['sponsored']) / 5
+y1['sponsored'] = (y17['sponsored'] + y11['sponsored'] + y10['sponsored'] + y9['sponsored'] + y4['sponsored'] + y1['sponsored'] + y5['sponsored'] + y8['sponsored'] + y7['sponsored']) / 9
+y1['sponsored'] = (y18['sponsored'] + y16['sponsored'] + y15['sponsored'] + y14['sponsored'] + y13['sponsored'] + y1['sponsored'] + y12['sponsored']) / 7
 
 #y1.to_csv('sub_3.csv', index=False)
-y1['sponsored'] = inv_logit(logit(a1['sponsored'].values) * 0.4 + logit(y1['sponsored'].values )* 0.3 + 
-logit(y16['sponsored'].values )* 0.4)
+y1['sponsored'] = inv_logit(logit(a1['sponsored'].values) * 0.4 + logit(y1['sponsored'].values )* 0.4 + 
+logit(y16['sponsored'].values )* 0.3)
 
 y1.to_csv('blend.csv', index=False)
 #print y1['sponsored']
